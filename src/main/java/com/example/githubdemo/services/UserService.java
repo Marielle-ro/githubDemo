@@ -7,16 +7,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    public final UserRepository repo;
+    public final UserRepository repository;
 
     public UserService(UserRepository repo) {
-        this.repo = repo;
+        this.repository = repo;
     }
-    public Users addUser(UserDto userDto) {
-        Users user = new Users();
-        user.setFirstName(userDto.getFirstName());
-        user.setLastName(userDto.getLastName());
-        user.setEmail(userDto.getEmail());
-        return repo.save(user);
+    public Users addUser(Users user) {
+        return repository.save(user);
     }
 }
